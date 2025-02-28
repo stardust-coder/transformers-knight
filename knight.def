@@ -1,0 +1,29 @@
+Bootstrap: docker
+From: pytorch/pytorch:2.2.2-cuda12.1-cudnn8-devel
+
+%post
+    # Update and install dependencies
+    apt-get update && apt-get install -y \
+        build-essential \
+        wget \
+        curl \
+        git \
+        python3 \
+        python3-pip 
+    apt-get install -y libglib2.0-0
+
+    #git clone https://github.com/huggingface/transformers.git
+    #cd transformers
+    #cp /mnt/.py /transformers/.py
+    #cp /mnt/.py /transformers/.py
+    #pip install .
+
+    pip install accelerate>=0.26.0
+
+
+%environment
+
+%runscript
+    echo "Hello World. This is singularity container."
+
+%labels
